@@ -1,31 +1,65 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<title>tpage</title>
-	<style>
-	  body{
-	     height: 1024px;
-	  }
-	  a {
-	     position: fixed;
-	     left: 10px;
-	     top: 50px;
-	  }
-	</style>
+<meta charset="UTF-8" />
+<title>tpage</title>
+<style>
+body {
+	height: 1024px;
+}
+
+#toTop {
+	position: fixed;
+	left: 10px;
+	top: 350px;
+}
+</style>
 </head>
 <body>
 	<a href="javascript:;" id="toTop">toTop</a>
-	<div id="test" style="height: 100px;width:100px; overflow: auto;">最新版 Firefox 在性能上有非常显著的提升，大幅降低的内存占用和更快的渲染速度，给用户更为流畅和高速的上网浏览体验，同时也让开发者能够开发出更为快速的网络应用和网站</div>
+	<div id="test" style="height: 300px; overflow: auto;">
+	    最新版 Firefox 在性能上有非常显著的提升，大幅降低的内存占用和更快的渲染速度，给用户更为流畅和高速的上网浏览体验，同时也让开发者能够开发出更为快速的网络应用和网站,
+	    <br />
+	    最新版 Firefox 在性能上有非常显著的提升，大幅降低的内存占用和更快的渲染速度，给用户更为流畅和高速的上网浏览体验，同时也让开发者能够开发出更为快速的网络应用和网站
+	    <br />
+	    最新版 Firefox 在性能上有非常显著的提升，大幅降低的内存占用和更快的渲染速度，给用户更为流畅和高速的上网浏览体验，同时也让开发者能够开发出更为快速的网络应用和网站
+	    <br />
+	    最新版 Firefox 在性能上有非常显著的提升，大幅降低的内存占用和更快的渲染速度，给用户更为流畅和高速的上网浏览体验，同时也让开发者能够开发出更为快速的网络应用和网站
+	    <br />
+	    最新版 Firefox 在性能上有非常显著的提升，大幅降低的内存占用和更快的渲染速度，给用户更为流畅和高速的上网浏览体验，同时也让开发者能够开发出更为快速的网络应用和网站
+	     <br />
+	    最新版 Firefox 在性能上有非常显著的提升，大幅降低的内存占用和更快的渲染速度，给用户更为流畅和高速的上网浏览体验，同时也让开发者能够开发出更为快速的网络应用和网站
+	    <br />
+	    最新版 Firefox 在性能上有非常显著的提升，大幅降低的内存占用和更快的渲染速度，给用户更为流畅和高速的上网浏览体验，同时也让开发者能够开发出更为快速的网络应用和网站
+	     <br />
+	    最新版 Firefox 在性能上有非常显著的提升，大幅降低的内存占用和更快的渲染速度，给用户更为流畅和高速的上网浏览体验，同时也让开发者能够开发出更为快速的网络应用和网站
+	    <br />
+	    最新版 Firefox 在性能上有非常显著的提升，大幅降低的内存占用和更快的渲染速度，给用户更为流畅和高速的上网浏览体验，同时也让开发者能够开发出更为快速的网络应用和网站
+	</div>
 </body>
 <script src="js/tpage.js"></script>
 <script>
-var tpage = new TPage("body");
-tpage.bottomfn = function() {
-	console.log("bottom")
-}
-document.getElementById("toTop").onclick = function () {
-	tpage.toTop();
-}
+	var tpage = new TPage("#test", {
+		page : 2,
+		url : "http://www.toutiao.com/api/pc/feed/?category=__all__&utm_source=toutiao&widen=1&max_behot_time=1481592391&max_behot_time_tmp=1481592391&as=A135A8344F6B630&cp=584F1BD6C3B04E1 {page}",
+		callback : showview
+	});
+
+	function showview(data) {		 
+		if (data.state == 'ok') {
+			console.log(data)
+			if (data.code == '10001') {
+				console.log(data.msg);
+			}
+			if (data.code == '10000') {
+				var child = document.createElement("div");
+				child.innerHTML = JSON.stringify(data.data);
+				document.body.appendChild(child);
+			}
+		}
+	}
+	document.getElementById("toTop").onclick = function() {
+		tpage.toTop();
+	}
 </script>
 </html>
