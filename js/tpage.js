@@ -55,7 +55,6 @@
 	}
 	
 	tpage.prototype.sheight = function () {
-		console.log(document.documentElement.clientHeight)
 		return document.documentElement.clientHeight;
 	}
 
