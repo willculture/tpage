@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>tpage</title>
+	<style>
+	  body{
+	     height: 1024px;
+	  }
+	  a {
+	     position: fixed;
+	     left: 10px;
+	     top: 50px;
+	  }
+	</style>
+</head>
+<body>
+	<a href="javascript:;" id="toTop">toTop</a>
+	<div id="test" style="height: 100px;width:100px; overflow: auto;">最新版 Firefox 在性能上有非常显著的提升，大幅降低的内存占用和更快的渲染速度，给用户更为流畅和高速的上网浏览体验，同时也让开发者能够开发出更为快速的网络应用和网站</div>
+</body>
+<script src="js/tpage.js"></script>
+<script>
+var tpage = new TPage("#test");
+tpage.bottomfn = function() {
+	console.log("bottom")
+}
+document.getElementById("toTop").onclick = function () {
+	tpage.toTop();
+}
+</script>
+</html>
