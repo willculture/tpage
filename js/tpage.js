@@ -37,6 +37,9 @@
 
 	tpage.prototype.to = function(val) {		
 		this.dom.scrollTop != 'undefind' ? this.dom.scrollTop = val : win.scrollTo(null, val);
+		if(this.dom == document.body) {
+			win.scrollTo(null, val);
+		}
 	}
 
 	tpage.prototype.top = function() {
