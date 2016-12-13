@@ -14,6 +14,14 @@
 		this.bottomfn = function() {
 			tpage.ajax.call(this, this.requrl(), this.callback);
 		};
+		
+		//滚动事件配置
+		var _scroll = function(top) {
+			
+		}
+		this.scroll = function(fn) {
+			_scroll = fn;
+		}
 		this.page = 1;
 		this.extend(options);
 		if (this.dom == doc.body) {
@@ -34,6 +42,7 @@
 			var _this = this;
 			return function(e) {
 				e.preventDefault();
+				 _scroll.call(_this, _this.top(), e);
 				var height = _this.top() + _this.sheight();
 				// console.log(height, _this.height())
 				if (height >= _this.height()) {
@@ -93,7 +102,8 @@
 			callback.call(this, {
 				state : 'ok',
 				code : '10001',
-				msg : '数据加载完成'
+				msg : '数据加载完成',
+				data : []
 			});
 			return;
 		}
@@ -113,7 +123,8 @@
 					callback.call(_this, {
 						state : 'ok',
 						code : '10001',
-						msg : '数据加载完成'
+						msg : '数据加载完成',
+						data : []
 					});
 				}
 				_this.isbottom = false;
