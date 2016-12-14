@@ -2,10 +2,11 @@
 滚动分页插件，目前只是初步版本，后期会加入更多的分页功能
 ```javascript
    var page = new TPage("place", {
-      page: 2,
-      url: "http://www.wutongwei.com/page/{page}.htm",
-      callback: bottom
+       page: 2,
+       url: "http://www.wutongwei.com/page/{page}.htm",
+       callback: bottom
    });
+   //回调函数
    function bottom(data) {
       console.log(data);
    }
