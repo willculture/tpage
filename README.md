@@ -1,5 +1,16 @@
 # tpage
 滚动分页插件，目前只是初步版本，后期会加入更多的分页功能
+```javascript
+   var page = new TPage("place", {
+      page: 2,
+      url: "http://www.wutongwei.com/page/{page}.htm",
+      callback: bottom
+   });
+   function bottom(data) {
+      console.log(data);
+   }
+
+```
 
 ###参数说明
 |参数名   | 参数作用               |
